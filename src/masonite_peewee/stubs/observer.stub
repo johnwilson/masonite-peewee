@@ -1,0 +1,27 @@
+"""__class__ Observer."""
+
+
+class __class__:
+    def creating(self, model):
+        pass
+
+    def created(self, model):
+        pass
+
+    def updating(self, model):
+        pass
+
+    def updated(self, model):
+        pass
+
+    def saving(self, model):
+        pass
+
+    def saved(self, model):
+        pass
+
+    def deleting(self, model):
+        pass
+
+    def deleted(self, model):
+        pass

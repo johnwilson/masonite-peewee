@@ -1,0 +1,9 @@
+"""__class__ Seeder."""
+
+from masonite_peewee.seeds import Seeder
+
+
+class __class__(Seeder):
+    def run(self):
+        """Run the database seeds."""
+        pass

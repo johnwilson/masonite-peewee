@@ -1,0 +1,15 @@
+"""__class__ Migration."""
+
+from masonite_peewee.migrations import Migration
+
+
+class __class__(Migration):
+    def up(self):
+        """Run the migrations."""
+        with self.schema.table("__table__") as table:
+            pass
+
+    def down(self):
+        """Revert the migrations."""
+        with self.schema.table("__table__") as table:
+            pass

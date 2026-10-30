@@ -1,0 +1,12 @@
+"""__class__ Model."""
+
+from peewee import DateTimeField
+
+from masonite_peewee import Model
+
+
+class __class__(Model):
+    """__class__ Model."""
+
+    created_at = DateTimeField(null=True)
+    updated_at = DateTimeField(null=True)

@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "masonite-peewee"
+version = "0.1.0"
+description = "Peewee ORM integration for the Masonite 5 framework"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+dependencies = [
+    "peewee>=3.17",
+    "inflection>=0.5",
+    "masonite-framework>=5.0,<6",
+]
+
+[project.scripts]
+masonite-peewee = "masonite_peewee.cli:main"
+
+[project.optional-dependencies]
+mysql = ["pymysql", "cryptography"]
+postgres = ["psycopg2-binary"]
+factories = ["faker"]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+masonite_peewee = ["stubs/*.stub"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

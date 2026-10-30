@@ -1,0 +1,36 @@
+# Databases for the test suite:
+#   docker compose up -d --wait
+#   TEST_DATABASES=sqlite,mysql,postgres pytest
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: masonite_peewee
+      MYSQL_USER: masonite
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+    ports:
+      - "${MYSQL_PORT:-3307}:3306"
+    tmpfs:
+      - /var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-umasonite", "-psecret"]
+      interval: 2s
+      timeout: 5s
+      retries: 60
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: masonite_peewee
+      POSTGRES_USER: masonite
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "${POSTGRES_PORT:-5433}:5432"
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "masonite", "-d", "masonite_peewee"]
+      interval: 2s
+      timeout: 5s
+      retries: 60
